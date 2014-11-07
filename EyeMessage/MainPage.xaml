@@ -1,0 +1,207 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="EyeMessage.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Code4fun="clr-namespace:Coding4Fun.Toolkit.Controls;assembly=Coding4Fun.Toolkit.Controls"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    toolkit:TiltEffect.IsTiltEnabled="True"
+    mc:Ignorable="d" Width="820"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="False"
+    shell:SystemTray.Opacity="1"
+    BackKeyPress="PhoneApplicationPage_BackKeyPress">
+
+    <phone:PhoneApplicationPage.RenderTransform>
+        <TranslateTransform x:Name="translate"/>
+    </phone:PhoneApplicationPage.RenderTransform>
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="storyboard_1" Completed="storyboard_1_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="50">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:20" Value="240" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="storyboard_2" Completed="storyboard_2_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="50">
+                <EasingDoubleKeyFrame KeyTime="0:0:20" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="storyboard_3" Completed="storyboard_1_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="50">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" />
+                <EasingDoubleKeyFrame KeyTime="0:0:20" Value="-100" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="storyboard_4" Completed="storyboard_2_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="50">
+                <EasingDoubleKeyFrame KeyTime="0:0:20" Value="0" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        
+        <!--第一栏位-->
+        <Grid Grid.Row="0" Height="76">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.0" Color="#0080CC" />
+                        <GradientStop Offset="0.5" Color="#007ACC" />
+                        <GradientStop Offset="1" Color="#0070CC" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Image Source="Icon/people.png" Grid.Column="0"/>
+            <TextBlock Text="我" FontSize="40" Foreground="WhiteSmoke"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Grid.Column="1"/>
+        </Grid>
+
+        <ListBox FontSize="50" Foreground="White" Background="#252526"
+                     Name="listbox_me" Grid.Row="1" Grid.RowSpan="2"
+                     SelectionChanged="listbox_me_SelectionChanged">
+            <ListBoxItem Content= "  天下一人" FontSize="40" Margin="0,10,0,0" Background="#007ACC" Foreground="White"/>
+            <ListBoxItem Content= "  二人同♥" FontSize="40" Margin="0,10,0,0" />
+            <ListBoxItem Content= "  绕梁三日" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  四大皆空" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  五光十色" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  六月飞霜" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  北斗七星" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  八面玲珑" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  九九归一" FontSize="40" Margin="0,10,0,0"/>
+            <ListBoxItem Content= "  十全十美" FontSize="40" Margin="0,10,0,0"/>
+        </ListBox>
+
+        <!-- 第二栏位-->
+        <Grid Grid.Row="0" Grid.Column="1" Height="76"> 
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0.0" Color="#0080CC" />
+                        <GradientStop Offset="0.5" Color="#007ACC" />
+                        <GradientStop Offset="1" Color="#0070CC" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Code4fun:Tile Grid.Column="0" Background="Transparent"
+                           Name="btn_list" Tap="btn_list_Tap">
+                <Image Source="Icon/list_dark.png" Name="image_list"/>
+            </Code4fun:Tile>
+            <TextBlock Text="看这里" FontSize="40" Foreground="White"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Grid.Column="1"/>
+            <Code4fun:Tile Grid.Column="2" Background="Transparent" Name="btn_color" Tap="btn_color_Tap">
+                <Image Source="Icon/edit.png" />
+            </Code4fun:Tile>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Background="WhiteSmoke" Name="grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Rectangle Fill="Red" Grid.Column="0" 
+                       ManipulationStarted="grid_ManipulationStarted"
+                       ManipulationDelta="grid_ManipulationDelta"
+                       ManipulationCompleted="grid_ManipulationCompleted" />
+            <Rectangle Fill="Green" Grid.Column="1"/>
+            <TextBlock Text="小妞儿" FontSize="110" Foreground="Black" Grid.Column="0" Grid.ColumnSpan="2"
+                           HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"
+                           Name="textblock_msg"/>
+        </Grid>
+        
+        <Grid x:Name="ContentPanel" Grid.Row="2" Grid.Column="1" Background="#3c3d3e">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <Code4fun:RoundButton Grid.Column="0" Margin="0,0,0,0" VerticalAlignment="Bottom" 
+                                      BorderBrush="White"
+                                      Name="btn_save" Tap="btn_save_Tap">
+                    <Image Source="Icon/save.png" Width="48" Height="48"/>
+                </Code4fun:RoundButton>
+
+                <TextBox Grid.Column="1" Margin="-10,0,0,0"
+                         Name="textbox_msg" Text="小妞儿" TextWrapping="Wrap" AcceptsReturn="True" 
+                         Background="White"
+                         GotFocus="textbox_msg_GotFocus"
+                         TextChanged="textbox_msg_TextChanged">
+                    <TextBox.InputScope>
+                        <InputScope>
+                            <InputScope.Names>
+                                <InputScopeName NameValue="Chat"/>
+                            </InputScope.Names>
+                        </InputScope>
+                    </TextBox.InputScope>
+                </TextBox>
+                <Code4fun:RoundButton Grid.Column="2" Margin="-10,0,0,0" VerticalAlignment="Bottom" 
+                                      BorderBrush="White"
+                                      Name="btn_send" Tap="btn_send_Tap">
+                    <Image Name="image_send" Source="Icon/smiley_dark.png" Width="48" Height="48"/>
+                </Code4fun:RoundButton>
+            </Grid>
+        </Grid>
+
+        <!--取消注释，以显示对齐网格，从而帮助确保
+            控件在公用边界上对齐。图像在系统栏中显示时的
+            上边距为 -32px。如果隐藏了系统栏，则将此值设为 0
+            (或完全删除边距)。
+
+            在发送之前删除此 XAML 和图像本身。-->
+        <!--<Image Source="/Assets/AlignmentGrid.png" VerticalAlignment="Top" Height="800" Width="480" Margin="0,-32,0,0" Grid.Row="0" Grid.RowSpan="2" IsHitTestVisible="False" />-->
+    </Grid>
+
+</phone:PhoneApplicationPage>

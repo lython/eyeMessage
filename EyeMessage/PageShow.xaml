@@ -1,0 +1,63 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="EyeMessage.PageShow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False"
+    DoubleTap="PhoneApplicationPage_DoubleTap"
+    BackKeyPress="PhoneApplicationPage_BackKeyPress"
+    OrientationChanged ="PhoneApplicationPage_OrientationChanged">
+
+    <phone:PhoneApplicationPage.Resources>
+        <Storyboard x:Name="storyboard_1" Completed="storyboard_1_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="10">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="480" />
+                <EasingDoubleKeyFrame KeyTime="0:0:30" Value="0" x:Name="easing_1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="storyboard_2" Completed="storyboard_2_Completed">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="translate"
+                                           Storyboard.TargetProperty="X"
+                                           RepeatBehavior="1x"
+                                           SpeedRatio="10">
+                <DiscreteDoubleKeyFrame KeyTime="0:0:0" Value="0" x:Name="easing_2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:30" Value="-480" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot 是包含所有页面内容的根网格-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" >
+            <TextBlock Name="text_msg" Text="I ♥ U" FontSize="110" TextWrapping="Wrap" Tap="text_msg_Tap" 
+                       Margin="0,0,0,0">
+                <TextBlock.RenderTransform>
+                    <TranslateTransform x:Name="translate"/>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Minimized" IsMenuEnabled="True" BackgroundColor="{StaticResource PhoneBackgroundColor}">
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem x:Name="menuItemLock" Text="设为锁屏壁纸" Click="menuItemLock_Click"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>
